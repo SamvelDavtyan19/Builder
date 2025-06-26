@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-# Abstract Builder
 class PizzaBuilder(ABC):
     def __init__(self):
         self.pizza = []
@@ -17,8 +16,6 @@ class PizzaBuilder(ABC):
     def get_pizza(self):
         return self.pizza
 
-
-# Concrete Builder: Meat Lover's Pizza
 class MeatLoversPizzaBuilder(PizzaBuilder):
     def add_base(self):
         self.pizza.append("Thick crust base")
@@ -29,8 +26,6 @@ class MeatLoversPizzaBuilder(PizzaBuilder):
     def add_toppings(self):
         self.pizza.append("Pepperoni, sausage, bacon")
 
-
-# Concrete Builder: Vegetarian Pizza
 class VeganPizzaBuilder(PizzaBuilder):
     def add_base(self):
         self.pizza.append("Thin crust base")
@@ -41,8 +36,6 @@ class VeganPizzaBuilder(PizzaBuilder):
     def add_toppings(self):
         self.pizza.append("Mushrooms, olives, bell peppers, onions")
 
-
-# Director
 class PizzaChef:
     def __init__(self, builder: PizzaBuilder):
         self.builder = builder
@@ -53,7 +46,6 @@ class PizzaChef:
         self.builder.add_toppings()
 
 
-# Function to display the pizza
 def show_pizza(builder):
     print("\n Custom Pizza:")
     for item in builder.get_pizza():
